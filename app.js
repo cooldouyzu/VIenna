@@ -434,6 +434,18 @@ if (day3) {
       ["transport"],
     ),
     makeItem(
+      "d3-10",
+      "12:50-14:00",
+      "午餐備案：Buffet Trzesniewski Dorotheergasse",
+      "Buffet Trzesniewski Dorotheergasse",
+      [48.20777, 16.3691],
+      "從英雄廣場、State Hall 或 Graben 一帶步行可達",
+      "約 5-10 分鐘",
+      "餐費另計",
+      "地址：Dorotheergasse 1, 1010 Wien。這是第 3 天午餐備案，不是額外加一餐；若 Figlmüller 客滿、排隊太久，或想吃輕量開放式三明治，就切換到這裡。",
+      ["transport", "warning"],
+    ),
+    makeItem(
       "d3-09",
       "15:10-15:35",
       "聖彼得教堂",
