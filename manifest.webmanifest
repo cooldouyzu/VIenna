@@ -1,0 +1,19 @@
+{
+  "name": "維也納行程互動 App",
+  "short_name": "維也納行程",
+  "description": "可離線使用的維也納五日行程、票價、交通與地圖互動規劃 App。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f2e8",
+  "theme_color": "#24333f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
