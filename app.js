@@ -404,6 +404,184 @@ const tripDays = [
   },
 ];
 
+const day1Garden = tripDays.find((day) => day.id === "day1")?.items.find((item) => item.id === "d1-05");
+if (day1Garden) {
+  day1Garden.time = "16:30-17:00／早晚彈性";
+  day1Garden.note =
+    "美景宮花園免費。因為飯店就在附近，除了下午順路散步，早上或晚餐後如果想補一段安靜散步，也很適合回來看噴泉與幾何造景。";
+}
+
+const day3 = tripDays.find((day) => day.id === "day3");
+if (day3) {
+  const day3Lunch = day3.items.find((item) => item.id === "d3-03");
+  const day3Cathedral = day3.items.find((item) => item.id === "d3-04");
+  const day3Manner = day3.items.find((item) => item.id === "d3-05");
+  if (day3Lunch) day3Lunch.time = "12:50-14:00";
+  if (day3Cathedral) day3Cathedral.time = "14:10-14:45";
+  if (day3Manner) day3Manner.time = "14:45-15:05";
+
+  day3.items.push(
+    makeItem(
+      "d3-08",
+      "12:30-12:45",
+      "英雄廣場",
+      "Heldenplatz",
+      [48.20695, 16.36368],
+      "State Hall 出來後步行到霍夫堡前廣場",
+      "約 5-8 分鐘",
+      "€0",
+      "位於霍夫堡皇宮前，是維也納最寬廣的廣場之一。適合看皇宮建築群、卡爾大公雕像，也可當作午餐前的免費加碼點。",
+      ["transport"],
+    ),
+    makeItem(
+      "d3-09",
+      "15:10-15:35",
+      "聖彼得教堂",
+      "Peterskirche",
+      [48.20928, 16.36986],
+      "Stephansdom、Manner 與 Graben 一帶步行可達",
+      "約 5-8 分鐘",
+      "€0",
+      "位於格拉本大街旁，巴洛克內部裝潢精美且開放免費參觀。若當天老城時間充裕，這站很值得插入。",
+      ["transport"],
+    ),
+  );
+}
+
+const revisedDay4 = {
+  id: "day4",
+  label: "第 4 天",
+  short: "Free Ring",
+  title: "皇室夏宮與環城大道免費深度遊",
+  status: "美泉宮 €44；其餘主軸多為免費公共空間",
+  accent: "#0f8b8d",
+  center: [48.202, 16.36],
+  zoom: 12,
+  note:
+    "這一天的重點是先用 Classic Pass 深入美泉宮，再把下午交給維也納的免費公共空間與政府機構資源：國會大廈、市政廳廣場、城市公園、Wien Museum 與卡爾教堂夕陽倒影。",
+  items: [
+    makeItem(
+      "d4-01",
+      "09:00-11:30",
+      "美泉宮 Classic Pass",
+      "Schönbrunn Palace Classic Pass",
+      [48.184516, 16.311865],
+      "從 Savoyen 可經 Karlsplatz 轉 U4 到 Schönbrunn；若想省體力可計程車",
+      "大眾運輸約 35-45 分鐘",
+      "Classic Pass €44",
+      "Classic Pass 包含 Palace Ticket、Privy Garden、Maze、Orangery Garden 與 Gloriette 觀景露台。早上先排這站，下午才有餘裕走免費深度遊。",
+      ["booking", "transport", "warning"],
+    ),
+    makeItem(
+      "d4-02",
+      "12:00-13:20",
+      "午餐：納許市場",
+      "Naschmarkt",
+      [48.19805, 16.36375],
+      "Schönbrunn 搭 U4 到 Kettenbrückengasse 或 Karlsplatz 一帶",
+      "約 20-30 分鐘",
+      "市場免費，餐費另計",
+      "維也納最古老、最熱鬧的傳統市場之一。單純穿梭攤位感受異國香料與在地氛圍也很有趣；可考慮 NENI am Naschmarkt，或市場內奧地利小吃攤。",
+      ["transport"],
+    ),
+    makeItem(
+      "d4-03",
+      "14:00-15:10",
+      "奧地利國會大廈",
+      "Austrian Parliament",
+      [48.20847, 16.35862],
+      "從 Naschmarkt 可步行、搭環城電車，或從 Karlsplatz 一帶轉乘到 Ring 周邊",
+      "約 18-30 分鐘",
+      "免費參觀；攜帶護照並通過安檢",
+      "希臘復興式建築，門口有雅典娜女神雕像。內部多媒體互動設計質感很好，可了解奧地利歷史；頂樓有景觀餐廳與免費廁所。",
+      ["booking", "transport", "warning"],
+    ),
+    makeItem(
+      "d4-04",
+      "15:30-16:00",
+      "市政廳廣場",
+      "Rathausplatz / Vienna City Hall",
+      [48.21082, 16.35814],
+      "從國會大廈沿 Ring 步行即可抵達",
+      "約 5-10 分鐘",
+      "€0",
+      "維也納市政廳是壯麗的新哥德式建築，塔頂有著名鐵人雕像。廣場常有免費活動，如夏季音樂電影節或冬季聖誕市集。",
+      ["transport"],
+    ),
+    makeItem(
+      "d4-05",
+      "16:10-16:45",
+      "城市公園與金色小約翰・史特勞斯雕像",
+      "Stadtpark / Johann Strauss Monument",
+      [48.20465, 16.38037],
+      "從 Rathausplatz 可搭 Ring 周邊電車到 Stadtpark 一帶，或視體力步行",
+      "約 15-25 分鐘",
+      "€0",
+      "在城市公園尋找金色小約翰・史特勞斯雕像拍照。這段是下午免費散步的核心，也讓路線慢慢回到 Karlsplatz 方向。",
+      ["transport"],
+    ),
+    makeItem(
+      "d4-06",
+      "17:00-18:00",
+      "維也納博物館常設展",
+      "Wien Museum",
+      [48.19835, 16.37322],
+      "Stadtpark 到 Karlsplatz 旁，步行或短程電車皆可",
+      "約 10-15 分鐘",
+      "常設展免費",
+      "位於卡爾廣場旁，專門介紹維也納城市歷史。可透過文物與模型快速看懂維也納從羅馬時代至今的變遷。",
+      ["booking", "transport"],
+    ),
+    makeItem(
+      "d4-07",
+      "18:30-19:00",
+      "卡爾教堂拍照與噴泉倒影",
+      "Karlskirche reflection photo stop",
+      [48.1982806, 16.3719],
+      "Wien Museum 出來後步行到卡爾教堂前水池",
+      "約 3-6 分鐘",
+      "外觀拍照 €0",
+      "日落時分看教堂外觀融合希臘與羅馬風格的建築。前方水池是拍攝倒影的最佳取景地之一。",
+      ["transport"],
+    ),
+    makeItem(
+      "d4-08",
+      "19:30",
+      "晚餐建議：Plachutta Wollzeile",
+      "Plachutta Wollzeile",
+      [48.208, 16.376],
+      "Karlsplatz / Stadtpark 一帶回市中心，可步行加大眾運輸或短程計程車",
+      "約 15-25 分鐘",
+      "餐費另計",
+      "回市中心品嚐經典 Tafelspitz，清燉牛肉湯搭配蘋果泥與酸奶油，是很有代表性的維也納體驗。",
+      ["transport", "warning"],
+    ),
+  ],
+};
+
+const day4Index = tripDays.findIndex((day) => day.id === "day4");
+if (day4Index !== -1) {
+  tripDays[day4Index] = revisedDay4;
+}
+
+const day5 = tripDays.find((day) => day.id === "day5");
+if (day5) {
+  day5.items.push(
+    makeItem(
+      "d5-07",
+      "16:30-17:10",
+      "多瑙河岸散步",
+      "Donaukanal street art walk",
+      [48.2119, 16.3772],
+      "從百水公寓或 Landstraße 一帶往 Donaukanal，可搭短程電車、U-Bahn 或計程車",
+      "約 15-25 分鐘",
+      "€0",
+      "河岸有街頭塗鴉與輕鬆的在地氛圍，適合傍晚散步。若 KHM 或百水公寓停留較久，這站可視體力取消，保留 Prater 晚餐動線。",
+      ["transport", "warning"],
+    ),
+  );
+}
+
 function makeItem(id, time, zh, en, coords, transport, moveTime, booking, note, tags) {
   return { id, time, zh, en, coords, transport, moveTime, booking, note, tags };
 }

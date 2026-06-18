@@ -1,4 +1,4 @@
-const CACHE_NAME = "vienna-itinerary-v1";
+const CACHE_NAME = "vienna-itinerary-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
