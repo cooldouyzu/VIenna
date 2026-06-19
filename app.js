@@ -457,6 +457,30 @@ if (day3) {
       "位於格拉本大街旁，巴洛克內部裝潢精美且開放免費參觀。若當天老城時間充裕，這站很值得插入。",
       ["transport"],
     ),
+    makeItem(
+      "d3-11",
+      "15:40-16:20",
+      "Cafe Demel 吃沙河蛋糕",
+      "Demel Wien",
+      [48.2088, 16.3678],
+      "從聖彼得教堂或 Graben 一帶徒步到 Kohlmarkt",
+      "約 5-8 分鐘",
+      "甜點餐費另計",
+      "地址：Kohlmarkt 14, 1010 Wien。安排在老城午後最順路，建議兩人分食或外帶，避免太影響晚餐與金色大廳時間。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d3-12",
+      "16:25-16:30",
+      "安可鐘路過看一眼",
+      "Ankeruhr / Anker Clock",
+      [48.21095, 16.37415],
+      "從 Demel 徒步穿過 Graben、Stephansplatz 往 Hoher Markt",
+      "約 10-15 分鐘",
+      "€0",
+      "安可鐘在 Hoher Markt / Bauernmarkt 一帶。有看到就好，不安排停留；若剛好接近整點再看人物音樂鐘。",
+      ["transport"],
+    ),
   );
 }
 
@@ -545,27 +569,39 @@ const revisedDay4 = {
       ["booking", "transport"],
     ),
     makeItem(
+      "d4-09",
+      "18:05-18:45",
+      "Hotel Sacher Wien 吃沙河蛋糕",
+      "Café Sacher Wien / Hotel Sacher Wien",
+      [48.20382, 16.36954],
+      "從 Wien Museum / Karlsplatz 徒步往國家歌劇院旁",
+      "約 8-12 分鐘",
+      "甜點餐費另計",
+      "地址：Philharmoniker Str. 4, 1010 Wien。排在 Karlskirche 夕景前後都順；若晚餐想吃 Plachutta 清燉牛肉，建議外帶或兩人分食。",
+      ["transport", "warning"],
+    ),
+    makeItem(
       "d4-07",
-      "18:30-19:00",
+      "19:00-19:20",
       "卡爾教堂拍照與噴泉倒影",
       "Karlskirche reflection photo stop",
       [48.1982806, 16.3719],
-      "Wien Museum 出來後步行到卡爾教堂前水池",
-      "約 3-6 分鐘",
+      "從 Hotel Sacher 徒步回 Karlsplatz，再到卡爾教堂前水池",
+      "約 10-15 分鐘",
       "外觀拍照 €0",
       "日落時分看教堂外觀融合希臘與羅馬風格的建築。前方水池是拍攝倒影的最佳取景地之一。",
       ["transport"],
     ),
     makeItem(
       "d4-08",
-      "19:30",
-      "晚餐建議：Plachutta Wollzeile",
+      "19:45",
+      "Plachutta Wollzeile 吃清燉牛肉",
       "Plachutta Wollzeile",
       [48.208, 16.376],
-      "Karlsplatz / Stadtpark 一帶回市中心，可步行加大眾運輸或短程計程車",
+      "從 Karlskirche / Karlsplatz 前往 Wollzeile，可搭 U-Bahn 到 Stephansplatz 或 Stubentor 後徒步；體力不足可短程計程車",
       "約 15-25 分鐘",
       "餐費另計",
-      "回市中心品嚐經典 Tafelspitz，清燉牛肉湯搭配蘋果泥與酸奶油，是很有代表性的維也納體驗。",
+      "地址：Wollzeile 38, 1010 Wien。主攻 Tafelspitz 清燉牛肉，搭配蘋果泥與酸奶油，是很有代表性的維也納晚餐體驗。",
       ["transport", "warning"],
     ),
   ],
@@ -593,6 +629,56 @@ if (day5) {
     ),
   );
 }
+
+const MOVEMENT_MODE_BY_ID = {
+  "d1-01": "大眾運輸／計程車",
+  "d1-02": "大眾運輸／計程車",
+  "d1-03": "徒步",
+  "d1-04": "徒步",
+  "d1-05": "徒步",
+  "d1-06": "徒步／短程交通",
+  "d1-07": "大眾運輸／徒步／計程車",
+  "d2-01": "依旅行團集合點，大眾運輸／計程車",
+  "d2-02": "旅行團遊覽車",
+  "d2-03": "依下車點，大眾運輸／計程車",
+  "d3-01": "大眾運輸＋徒步",
+  "d3-02": "徒步",
+  "d3-03": "徒步",
+  "d3-04": "徒步",
+  "d3-05": "徒步",
+  "d3-06": "徒步",
+  "d3-07": "徒步／U-Bahn",
+  "d3-08": "徒步",
+  "d3-09": "徒步",
+  "d3-10": "徒步",
+  "d3-11": "徒步",
+  "d3-12": "徒步",
+  "d4-01": "大眾運輸／計程車",
+  "d4-02": "U-Bahn＋徒步",
+  "d4-03": "電車／U-Bahn＋徒步",
+  "d4-04": "徒步",
+  "d4-05": "電車／徒步",
+  "d4-06": "徒步／短程電車",
+  "d4-07": "徒步",
+  "d4-08": "U-Bahn＋徒步／計程車",
+  "d4-09": "徒步",
+  "d5-01": "大眾運輸／計程車",
+  "d5-02": "U-Bahn＋徒步／計程車",
+  "d5-03": "徒步",
+  "d5-04": "U-Bahn／電車＋徒步",
+  "d5-05": "徒步／U-Bahn",
+  "d5-06": "徒步",
+  "d5-07": "電車／U-Bahn＋徒步",
+};
+
+tripDays.forEach((day) => {
+  day.items.forEach((item) => {
+    const mode = MOVEMENT_MODE_BY_ID[item.id];
+    if (mode && !String(item.transport || "").startsWith("移動方式：")) {
+      item.transport = `移動方式：${mode}｜${item.transport}`;
+    }
+  });
+});
 
 function makeItem(id, time, zh, en, coords, transport, moveTime, booking, note, tags) {
   return { id, time, zh, en, coords, transport, moveTime, booking, note, tags };
