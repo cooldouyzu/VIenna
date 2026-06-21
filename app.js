@@ -411,14 +411,178 @@ if (day1Garden) {
     "美景宮花園免費。因為飯店就在附近，除了下午順路散步，早上或晚餐後如果想補一段安靜散步，也很適合回來看噴泉與幾何造景。";
 }
 
+const day1 = tripDays.find((day) => day.id === "day1");
+if (day1) {
+  day1.title = "金色大廳取票、中央車站、美景宮與卡爾教堂";
+  day1.status = "抵達日；18:00 前須完成取票；景點小計 €32.50";
+  day1.note =
+    "13:18 抵達 Wien Hauptbahnhof，放完行李後需在 18:00 前到 Kärntner Straße 51 兌換金色大廳編號座位票。原本下午景點較緊，取票是第一優先。";
+  day1.items.push(
+    makeItem(
+      "d1-08",
+      "09:30-18:00 可兌換",
+      "兌換金色大廳音樂會編號座位票",
+      "Exchange Musikverein numbered-seat ticket",
+      [48.20255, 16.3703],
+      "抵達後從 Savoyen 搭電車／U-Bahn 加徒步，或直接搭計程車到 Kärntner Straße 51",
+      "由飯店出發約 15-25 分鐘",
+      "固定取票；18:00 截止",
+      "地址：Kärntner Straße 51, 1010 Wien。09:30-18:00 是可兌換時間窗，不是整段停留時間；你 13:18 抵達後才能辦理，建議放完行李就優先前往，並預留核對訂單與領取編號座位票的時間。",
+      ["booking", "transport", "warning"],
+    ),
+  );
+}
+
+const day2 = tripDays.find((day) => day.id === "day2");
+if (day2) {
+  day2.status = "預訂 GYGFWV6QA3A3；06:45-07:15 接送";
+  day2.note =
+    "哈修塔特一日團預訂編號 GYGFWV6QA3A3。接送時間為 06:45-07:15，整體活動與車程合計約 11 小時 45 分；回到維也納後不再安排市區景點。";
+  day2.items = [
+    makeItem(
+      "d2-01",
+      "06:45-07:15",
+      "旅行團接送",
+      "Hallstatt tour pickup",
+      HOTEL_SAVOYEN,
+      "依旅行團通知在指定接送點等候；若不是飯店門口，提早搭車前往",
+      "至少提早 10-15 分鐘到接送點",
+      "預訂編號 GYGFWV6QA3A3",
+      "接送時間介於 06:45-07:15。前一晚再次核對接送地址、聯絡電話與車輛資訊；預訂編號：GYGFWV6QA3A3。",
+      ["booking", "transport", "warning"],
+    ),
+    makeItem(
+      "d2-02",
+      "第 1 段｜105 分鐘",
+      "搭旅行團車輛前往第一個休憩點",
+      "Van transfer to first rest stop",
+      null,
+      "旅行團車輛（貨車）長途移動",
+      "105 分鐘",
+      "包含於旅行團",
+      "上車後先完成第一段 105 分鐘移動。隨身帶水、暈車藥與薄外套。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d2-03",
+      "第 2 段｜30 分鐘",
+      "當地餐館休憩",
+      "Local restaurant break",
+      null,
+      "下車後在旅行團指定餐館短暫休息",
+      "停留 30 分鐘",
+      "餐費依現場安排",
+      "這一站主要用於用餐、補水與上洗手間，時間不長，留意集合時間。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d2-04",
+      "第 3 段｜45＋30＋15 分鐘",
+      "移動、短暫自由時間，再前往聖吉爾根",
+      "Transfer, free time, then St. Gilgen",
+      null,
+      "搭旅行團車輛 45 分鐘，下車自由活動 30 分鐘，再搭車 15 分鐘",
+      "共 90 分鐘",
+      "包含於旅行團",
+      "這段依序為：貨車 45 分鐘 → 自由時間 30 分鐘 → 貨車 15 分鐘。每次下車前先確認集合點。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d2-05",
+      "第 4 段｜30 分鐘",
+      "聖吉爾根自由時間",
+      "St. Gilgen free time",
+      [47.7666, 13.3644],
+      "下車後在聖吉爾根步行自由活動",
+      "停留 30 分鐘",
+      "自由活動",
+      "停留只有 30 分鐘，建議以湖畔與小鎮街景為主，不要走得離集合點太遠。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d2-06",
+      "第 5 段｜40 分鐘",
+      "前往哈爾施塔特",
+      "Transfer to Hallstatt",
+      [47.5622, 13.6493],
+      "搭旅行團車輛（貨車）前往哈爾施塔特",
+      "40 分鐘",
+      "包含於旅行團",
+      "抵達後先跟隨導覽，不要一到站就脫隊拍照。",
+      ["transport"],
+    ),
+    makeItem(
+      "d2-07",
+      "第 6 段｜1 小時",
+      "哈爾施塔特導覽遊",
+      "Hallstatt guided tour",
+      [47.5622, 13.6493],
+      "在哈爾施塔特跟隨導遊徒步參觀",
+      "導覽 1 小時",
+      "預訂編號 GYGFWV6QA3A3",
+      "跟團完成 1 小時導覽；預訂編號 GYGFWV6QA3A3。把想回頭拍照或購物的點記下來，下一段有 2.5 小時自由時間。",
+      ["booking", "transport"],
+    ),
+    makeItem(
+      "d2-08",
+      "第 7 段｜2.5 小時",
+      "哈爾施塔特自由時間",
+      "Hallstatt free time",
+      [47.5622, 13.6493],
+      "小鎮內以徒步自由活動",
+      "停留 2.5 小時",
+      "餐飲與購物另計",
+      "這是當天最長的自由活動時段。先確認返程集合點與時間，再安排拍照、午餐或咖啡。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d2-09",
+      "返程｜105＋15＋80 分鐘",
+      "返回維也納",
+      "Return to Vienna",
+      HOTEL_SAVOYEN,
+      "搭旅行團車輛 105 分鐘，在當地咖啡館休憩 15 分鐘，再搭車 80 分鐘回維也納",
+      "返程共 200 分鐘",
+      "包含於旅行團；咖啡餐費另計",
+      "返程依序為：貨車 105 分鐘 → 當地咖啡館休憩 15 分鐘 → 貨車 80 分鐘。依 06:45-07:15 接送推估，約 18:30-19:00 回到維也納，仍以路況及旅行團通知為準。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d2-10",
+      "回程後",
+      "簡單晚餐、回飯店休息",
+      "Light dinner and rest in Vienna",
+      HOTEL_SAVOYEN,
+      "依旅行團下車點搭大眾運輸或計程車回飯店",
+      "依實際下車點而定",
+      "餐費與回程交通另計",
+      "不再加市區景點。回程若遇塞車，直接在飯店附近找晚餐最省力。",
+      ["transport", "warning"],
+    ),
+  ];
+}
+
 const day3 = tripDays.find((day) => day.id === "day3");
 if (day3) {
   const day3Lunch = day3.items.find((item) => item.id === "d3-03");
   const day3Cathedral = day3.items.find((item) => item.id === "d3-04");
   const day3Manner = day3.items.find((item) => item.id === "d3-05");
+  const day3Dinner = day3.items.find((item) => item.id === "d3-06");
+  const day3Concert = day3.items.find((item) => item.id === "d3-07");
   if (day3Lunch) day3Lunch.time = "12:50-14:00";
   if (day3Cathedral) day3Cathedral.time = "14:10-14:45";
   if (day3Manner) day3Manner.time = "14:45-15:05";
+  if (day3Dinner) day3Dinner.time = "17:15-18:30";
+  if (day3Concert) {
+    day3Concert.time = "19:15 開放｜19:45 入廳｜20:15 開演";
+    day3Concert.transport = "從 Ribs of Vienna 步行，或搭 U1 到 Karlsplatz 後步行至 Musikvereinsplatz 1";
+    day3Concert.moveTime = "約 12-20 分鐘；最晚建議 19:15 抵達";
+    day3Concert.booking = "20:15 莫札特音樂會；編號座位票";
+    day3Concert.note =
+      "地址：Musikvereinsplatz 1, 1010 Wien。場地於開演前 60 分鐘（19:15）開放，音樂廳於開演前 30 分鐘（19:45）開放，20:15 正式開演；攜帶第一天兌換完成的編號座位票。";
+  }
+  day3.note =
+    "上午走霍夫堡與 State Hall，下午逛老城。晚上 20:15 在維也納樂友協會金色大廳聽莫札特音樂會；19:15 場地開放、19:45 音樂廳開放。";
 
   day3.items.push(
     makeItem(
@@ -648,6 +812,18 @@ if (day4Index !== -1) {
   tripDays[day4Index] = revisedDay4;
 }
 
+const TRIP_DATES = {
+  day1: "7/5",
+  day2: "7/6",
+  day3: "7/7",
+  day4: "7/8",
+  day5: "7/9",
+};
+
+tripDays.forEach((day) => {
+  day.date = TRIP_DATES[day.id] || "";
+});
+
 const day5 = tripDays.find((day) => day.id === "day5");
 if (day5) {
   day5.items.push(
@@ -674,9 +850,17 @@ const MOVEMENT_MODE_BY_ID = {
   "d1-05": "徒步",
   "d1-06": "徒步／短程交通",
   "d1-07": "大眾運輸／徒步／計程車",
+  "d1-08": "大眾運輸＋徒步／計程車",
   "d2-01": "依旅行團集合點，大眾運輸／計程車",
   "d2-02": "旅行團遊覽車",
-  "d2-03": "依下車點，大眾運輸／計程車",
+  "d2-03": "徒步／休息",
+  "d2-04": "旅行團車輛＋徒步",
+  "d2-05": "徒步",
+  "d2-06": "旅行團車輛",
+  "d2-07": "徒步導覽",
+  "d2-08": "徒步",
+  "d2-09": "旅行團車輛",
+  "d2-10": "大眾運輸／計程車",
   "d3-01": "大眾運輸＋徒步",
   "d3-02": "徒步",
   "d3-03": "徒步",
@@ -920,7 +1104,7 @@ function renderDayTabs() {
   els.dayTabs.innerHTML = tripDays
     .map(
       (day) => `<button class="day-tab ${day.id === state.currentDay ? "is-active" : ""}" type="button" style="--accent:${day.accent}" data-day="${day.id}" aria-pressed="${day.id === state.currentDay}">
-        <strong>${escapeHtml(day.label)}<em>${escapeHtml(day.short)}</em></strong>
+        <strong>${escapeHtml(day.label)}<em>${escapeHtml(day.date)} · ${escapeHtml(day.short)}</em></strong>
         <span>${escapeHtml(day.status)}</span>
       </button>`,
     )
@@ -937,7 +1121,7 @@ function renderDayTabs() {
 }
 
 function renderDayHeader(day) {
-  els.dayStatus.textContent = day.status;
+  els.dayStatus.textContent = `${day.date}｜${day.status}`;
   els.dayTitle.textContent = day.title;
   els.dayNote.textContent = day.note;
 }
