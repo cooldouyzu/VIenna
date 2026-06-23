@@ -564,14 +564,38 @@ if (day2) {
 
 const day3 = tripDays.find((day) => day.id === "day3");
 if (day3) {
+  const day3Sisi = day3.items.find((item) => item.id === "d3-01");
   const day3Lunch = day3.items.find((item) => item.id === "d3-03");
   const day3Cathedral = day3.items.find((item) => item.id === "d3-04");
   const day3Manner = day3.items.find((item) => item.id === "d3-05");
   const day3Dinner = day3.items.find((item) => item.id === "d3-06");
   const day3Concert = day3.items.find((item) => item.id === "d3-07");
-  if (day3Lunch) day3Lunch.time = "12:50-14:00";
-  if (day3Cathedral) day3Cathedral.time = "14:10-14:45";
-  if (day3Manner) day3Manner.time = "14:45-15:05";
+  if (day3Sisi) {
+    day3Sisi.time = "09:30-09:45 入場｜參觀至 11:15";
+    day3Sisi.transport =
+      "從 Savoyen 前往霍夫堡：搭大眾運輸後步行至西西公主博物館入口";
+    day3Sisi.moveTime = "搭車＋步行共約 21 分鐘；建議最晚 09:00 出發";
+    day3Sisi.booking = "固定入場時段 09:30-09:45";
+    day3Sisi.note =
+      "7/7 西西公主博物館固定於 09:30-09:45 之間入場。從飯店搭車加步行約 21 分鐘，建議 09:00 前出發，預留找入口與驗票時間。";
+  }
+  if (day3Lunch) {
+    day3Lunch.time = "12:50-13:30";
+    day3Lunch.zh = "午餐：Buffet Trzesniewski Dorotheergasse";
+    day3Lunch.en = "Buffet Trzesniewski Dorotheergasse";
+    day3Lunch.coords = [48.20777, 16.3691];
+    day3Lunch.transport = "從英雄廣場或 State Hall 徒步前往 Dorotheergasse 1";
+    day3Lunch.moveTime = "約 5-10 分鐘";
+    day3Lunch.booking = "餐費另計";
+    day3Lunch.note =
+      "地址：Dorotheergasse 1, 1010 Wien。直接把這家排為午餐主選；吃完可徒步到 Café Demel，把沙河蛋糕接成甜點。";
+  }
+  if (day3Cathedral) {
+    day3Cathedral.time = "14:20-14:55";
+    day3Cathedral.transport = "從 Café Demel 徒步穿過 Graben、Stephansplatz 前往主教座堂";
+    day3Cathedral.moveTime = "約 8-12 分鐘";
+  }
+  if (day3Manner) day3Manner.time = "14:55-15:10";
   if (day3Dinner) day3Dinner.time = "17:15-18:30";
   if (day3Concert) {
     day3Concert.time = "19:15 開放｜19:45 入廳｜20:15 開演";
@@ -582,7 +606,7 @@ if (day3) {
       "地址：Musikvereinsplatz 1, 1010 Wien。場地於開演前 60 分鐘（19:15）開放，音樂廳於開演前 30 分鐘（19:45）開放，20:15 正式開演；攜帶第一天兌換完成的編號座位票。";
   }
   day3.note =
-    "上午走霍夫堡與 State Hall，下午逛老城。晚上 20:15 在維也納樂友協會金色大廳聽莫札特音樂會；19:15 場地開放、19:45 音樂廳開放。";
+    "09:30-09:45 入場西西公主博物館，從飯店搭車加步行約 21 分鐘。午餐主選 Trzesniewski、Five Guys 為備案，飯後可到 Demel 吃甜點；晚上 20:15 金色大廳音樂會。";
 
   day3.items.push(
     makeItem(
@@ -599,19 +623,19 @@ if (day3) {
     ),
     makeItem(
       "d3-10",
-      "12:50-14:00",
-      "午餐備案：Buffet Trzesniewski Dorotheergasse",
-      "Buffet Trzesniewski Dorotheergasse",
-      [48.20777, 16.3691],
-      "從英雄廣場、State Hall 或 Graben 一帶步行可達",
-      "約 5-10 分鐘",
+      "12:50-13:30",
+      "午餐備案：Five Guys 漢堡",
+      "Five Guys Wien Graben",
+      [48.2084341, 16.3708998],
+      "從 Trzesniewski、State Hall 或 Graben 一帶徒步前往",
+      "約 4-10 分鐘",
       "餐費另計",
-      "地址：Dorotheergasse 1, 1010 Wien。這是第 3 天午餐備案，不是額外加一餐；若 Figlmüller 客滿、排隊太久，或想吃輕量開放式三明治，就切換到這裡。",
+      "地址：Graben 30, 1010 Wien。這是午餐替代方案，不是額外加一餐；若想吃漢堡，就用 Five Guys 取代 Trzesniewski，飯後同樣可順路到 Café Demel。",
       ["transport", "warning"],
     ),
     makeItem(
       "d3-09",
-      "15:10-15:35",
+      "15:10-15:30",
       "聖彼得教堂",
       "Peterskirche",
       [48.20928, 16.36986],
@@ -623,24 +647,24 @@ if (day3) {
     ),
     makeItem(
       "d3-11",
-      "15:40-16:20",
+      "13:35-14:10",
       "Cafe Demel 吃沙河蛋糕",
       "Demel Wien",
       [48.2088, 16.3678],
-      "從聖彼得教堂或 Graben 一帶徒步到 Kohlmarkt",
-      "約 5-8 分鐘",
+      "從 Trzesniewski 或 Five Guys 徒步到 Kohlmarkt",
+      "約 5-10 分鐘",
       "甜點餐費另計",
-      "地址：Kohlmarkt 14, 1010 Wien。安排在老城午後最順路，建議兩人分食或外帶，避免太影響晚餐與金色大廳時間。",
+      "地址：Kohlmarkt 14, 1010 Wien。午餐後的甜點提醒：可把 Café Demel 接在 Trzesniewski 或 Five Guys 後面；若午餐吃太飽，可改成外帶或跳過。",
       ["transport", "warning"],
     ),
     makeItem(
       "d3-12",
-      "16:25-16:30",
+      "15:40-15:45",
       "安可鐘路過看一眼",
       "Ankeruhr / Anker Clock",
       [48.21095, 16.37415],
-      "從 Demel 徒步穿過 Graben、Stephansplatz 往 Hoher Markt",
-      "約 10-15 分鐘",
+      "從聖彼得教堂徒步穿過 Graben、Stephansplatz 往 Hoher Markt",
+      "約 8-12 分鐘",
       "€0",
       "安可鐘在 Hoher Markt / Bauernmarkt 一帶。有看到就好，不安排停留；若剛好接近整點再看人物音樂鐘。",
       ["transport"],
@@ -658,18 +682,66 @@ const revisedDay4 = {
   center: [48.202, 16.36],
   zoom: 12,
   note:
-    "這一天的重點是先用 Classic Pass 深入美泉宮，再把下午交給維也納的免費公共空間與政府機構資源：國會大廈、市政廳廣場、城市公園、Wien Museum 與卡爾教堂夕陽倒影。",
+    "08:10 從飯店出發，先到 Stranitzkygasse，再走 Gloriette 與美泉宮花園；09:30 排隊領中文語音導覽，09:45-10:00 入場。下午走環城大道，晚上記得買隔日 KHM 的 Klook QR 票。",
   items: [
     makeItem(
+      "d4-13",
+      "08:10-08:45",
+      "搭車前往 Stranitzkygasse",
+      "Transit to Stranitzkygasse",
+      [48.1749703, 16.3174994],
+      "從 Savoyen 搭大眾運輸前往 Stranitzkygasse, 1120 Wien",
+      "約 35 分鐘",
+      "交通另計",
+      "先從美泉宮花園南側進場。建議 08:10 準時出發，後面才有時間拍 Gloriette、穿越花園並在 09:30 抵達宮殿入口。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d4-14",
+      "08:45-08:55",
+      "徒步前往 Gloriette 凱旋門",
+      "Walk to the Gloriette",
+      [48.1782674, 16.3087265],
+      "從 Stranitzkygasse 徒步進入美泉宮花園南側並前往 Gloriette",
+      "約 10 分鐘",
+      "花園 €0",
+      "你說的凱旋門以 Gloriette 安排。抵達後快速拍照，注意後面還要下坡穿過花園到美泉宮主建築。",
+      ["transport"],
+    ),
+    makeItem(
+      "d4-15",
+      "08:55-09:25",
+      "Gloriette 拍照＋穿越美泉宮花園",
+      "Gloriette photos and garden walk",
+      [48.1813, 16.3108],
+      "由 Gloriette 徒步下坡，沿花園中軸往美泉宮主建築前進",
+      "拍照約 10 分鐘＋花園步行約 20 分鐘",
+      "€0",
+      "拍完 Gloriette 後直接往宮殿方向走，沿途經過美泉宮花園；09:25 左右要抵達入口附近。",
+      ["transport", "warning"],
+    ),
+    makeItem(
+      "d4-16",
+      "09:30-09:45",
+      "排隊驗票並領中文語音導覽",
+      "Queue and collect Chinese audio guide",
+      [48.184516, 16.311865],
+      "從花園中軸徒步至美泉宮入場處",
+      "約 5 分鐘緩衝",
+      "固定入場前準備",
+      "09:30 到現場排隊，先完成驗票並領中文語音導覽；不要等到 09:45 才開始找入口。",
+      ["booking", "transport", "warning"],
+    ),
+    makeItem(
       "d4-01",
-      "09:00-11:30",
+      "09:45-10:00 入場｜參觀至 11:30",
       "美泉宮 Classic Pass",
       "Schönbrunn Palace Classic Pass",
       [48.184516, 16.311865],
-      "從 Savoyen 可經 Karlsplatz 轉 U4 到 Schönbrunn；若想省體力可計程車",
-      "大眾運輸約 35-45 分鐘",
-      "Classic Pass €44",
-      "Classic Pass 包含 Palace Ticket、Privy Garden、Maze、Orangery Garden 與 Gloriette 觀景露台。早上先排這站，下午才有餘裕走免費深度遊。",
+      "領完中文語音導覽後，依現場指示進入美泉宮參觀動線",
+      "09:45-10:00 之間入場",
+      "Classic Pass €44；固定入場 09:45-10:00",
+      "固定於 09:45-10:00 之間入場。Classic Pass 包含 Palace Ticket、Privy Garden、Maze、Orangery Garden 與 Gloriette 觀景露台；中文語音導覽已安排在 09:30 領取。",
       ["booking", "transport", "warning"],
     ),
     makeItem(
@@ -804,6 +876,18 @@ const revisedDay4 = {
       "地址：Wollzeile 38, 1010 Wien。主攻 Tafelspitz 清燉牛肉，搭配蘋果泥與酸奶油，是很有代表性的維也納晚餐體驗。",
       ["transport", "warning"],
     ),
+    makeItem(
+      "d4-17",
+      "21:30",
+      "在 Klook 購買明日藝術史博物館門票",
+      "Buy tomorrow's KHM ticket on Klook",
+      null,
+      "線上使用手機購票，不需移動",
+      "約 5-10 分鐘",
+      "Klook 電子票；價格依下單頁面",
+      "購買 7/9 藝術史博物館門票後，確認電子票已出現 QR code 並存到手機；隔天進場直接刷 QR code。建議另外截圖，避免現場網路不穩。",
+      ["booking", "warning"],
+    ),
   ],
 };
 
@@ -826,6 +910,12 @@ tripDays.forEach((day) => {
 
 const day5 = tripDays.find((day) => day.id === "day5");
 if (day5) {
+  const khm = day5.items.find((item) => item.id === "d5-02");
+  if (khm) {
+    khm.booking = "前一晚於 Klook 購票；現場直接刷 QR code";
+    khm.note =
+      "7/8 晚上先在 Klook 買好門票並把 QR code 存到手機。7/9 抵達 KHM 後直接刷 QR code 入場，不必再排現場購票隊伍；價格以 Klook 下單頁面為準。";
+  }
   day5.items.push(
     makeItem(
       "d5-07",
@@ -873,7 +963,7 @@ const MOVEMENT_MODE_BY_ID = {
   "d3-10": "徒步",
   "d3-11": "徒步",
   "d3-12": "徒步",
-  "d4-01": "大眾運輸／計程車",
+  "d4-01": "徒步",
   "d4-02": "U-Bahn＋徒步",
   "d4-03": "電車／U-Bahn＋徒步",
   "d4-04": "徒步",
@@ -885,6 +975,11 @@ const MOVEMENT_MODE_BY_ID = {
   "d4-10": "徒步",
   "d4-11": "徒步",
   "d4-12": "徒步",
+  "d4-13": "大眾運輸",
+  "d4-14": "徒步",
+  "d4-15": "徒步",
+  "d4-16": "徒步",
+  "d4-17": "線上操作",
   "d5-01": "大眾運輸／計程車",
   "d5-02": "U-Bahn＋徒步／計程車",
   "d5-03": "徒步",
