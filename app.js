@@ -18,7 +18,7 @@ const tripDays = [
     center: [48.195, 16.378],
     zoom: 14,
     note:
-      "13:18 抵達 Wien Hauptbahnhof，先到 Austria Trend Hotel Savoyen Vienna 放行李，再走美景宮與卡爾教堂。19:00 有報告，18:15 前回飯店比較穩。",
+      "13:18 抵達 Wien Hauptbahnhof，先到 Austria Trend Hotel Savoyen Vienna 放行李，再走美景宮與卡爾教堂。19:30 在飯店內 Mancini Ballroom 參加研討會，18:15 前回飯店比較穩。",
     items: [
       makeItem(
         "d1-01",
@@ -94,14 +94,14 @@ const tripDays = [
       ),
       makeItem(
         "d1-07",
-        "18:00-18:15",
-        "回飯店準備 19:00 報告",
-        "Return to Austria Trend Hotel Savoyen",
+        "18:00-19:30",
+        "回飯店準備 19:30 研討會",
+        "Mancini Ballroom seminar at hotel",
         HOTEL_SAVOYEN,
         "Karlsplatz / Rennweg 一帶回飯店，可電車、步行加電車或計程車",
         "約 10-15 分鐘",
-        "—",
-        "18:15 前回房間，留下整理、充電、換衣服與開會設備檢查時間。",
+        "19:30｜Mancini Ballroom（飯店內）",
+        "18:15 前回房間，留下整理、充電、換衣服與開會設備檢查時間；19:30 到飯店內 Mancini Ballroom 參加研討會。",
         ["transport", "warning"],
       ),
     ],
