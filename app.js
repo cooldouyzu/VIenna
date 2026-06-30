@@ -755,6 +755,18 @@ if (day3) {
       "安可鐘在 Hoher Markt / Bauernmarkt 一帶。有看到就好，不安排停留；若剛好接近整點再看人物音樂鐘。",
       ["transport"],
     ),
+    makeItem(
+      "d3-13",
+      "15:45-16:05",
+      "BILLA Corso 補給／免費廁所",
+      "BILLA Corso Hoher Markt",
+      [48.21058, 16.3736],
+      "看完安可鐘後沿 Hoher Markt 徒步前往 Hoher Markt 12",
+      "步行約 1-3 分鐘",
+      "自助餐依現場計價；廁所免費",
+      "地址：Hoher Markt 12, 1010 Wien。店內有自助餐，也可使用免費廁所，適合在老城行程中補充飲水、簡單用餐或稍作休息；自助餐供應內容與時段以現場為準。",
+      ["transport", "warning"],
+    ),
   );
 }
 
@@ -1050,6 +1062,7 @@ const MOVEMENT_MODE_BY_ID = {
   "d3-10": "徒步",
   "d3-11": "徒步",
   "d3-12": "徒步",
+  "d3-13": "徒步",
   "d4-01": "徒步",
   "d4-02": "U-Bahn＋徒步",
   "d4-03": "電車／U-Bahn＋徒步",
