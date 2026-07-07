@@ -11,14 +11,14 @@ const tripDays = [
   {
     id: "day1",
     label: "第 1 天",
-    short: "Belvedere",
-    title: "中央車站、美景宮與卡爾教堂",
-    status: "抵達日，景點小計 €32.50",
+    short: "Arrival",
+    title: "中央車站、金色大廳取票、卡爾教堂與研討會",
+    status: "抵達日；美景宮改第 5 天早上",
     accent: "#d86b2a",
     center: [48.195, 16.378],
     zoom: 14,
     note:
-      "13:18 抵達 Wien Hauptbahnhof，先到 Austria Trend Hotel Savoyen Vienna 放行李，再走美景宮與卡爾教堂。19:30 在飯店內 Mancini Ballroom 參加研討會，18:15 前回飯店比較穩。",
+      "13:18 抵達 Wien Hauptbahnhof，先到 Austria Trend Hotel Savoyen Vienna 放行李。美景宮改到第 5 天早上退房前，第一天優先處理金色大廳取票、卡爾教堂與 19:30 飯店內 Mancini Ballroom 研討會。",
     items: [
       makeItem(
         "d1-01",
@@ -41,7 +41,7 @@ const tripDays = [
         "中央車站到 Rennweg 一帶；可用電車 D、S-Bahn 或計程車",
         "約 8-15 分鐘",
         "交通另計",
-        "第一晚飯店基地。放完行李後直接往 Salm Bräu 午餐，下午路線集中在美景宮、卡爾教堂一帶。",
+        "第一晚飯店基地。放完行李後直接往 Salm Bräu 午餐，再進老城處理金色大廳取票。",
         ["transport"],
       ),
       makeItem(
@@ -53,7 +53,7 @@ const tripDays = [
         "從 Savoyen 步行或短程電車",
         "步行約 8-12 分鐘",
         "餐費另計",
-        "抵達日午餐安排在飯店與美景宮之間，動線順，不必硬切進老城。",
+        "抵達日午餐安排在飯店附近，吃完再前往 Kärntner Straße 51 換音樂會編號座位票。",
         ["transport"],
       ),
       makeItem(
@@ -319,7 +319,7 @@ const tripDays = [
   {
     id: "day5",
     label: "第 5 天",
-    short: "KHM & Prater",
+    short: "Belvedere+",
     title: "換飯店、藝術史博物館、百水公寓與普拉特",
     status: "景點小計 €22；現場買 KHM 為 €24",
     accent: "#b84545",
@@ -490,33 +490,43 @@ const tripDays = [
   },
 ];
 
-const day1Garden = tripDays.find((day) => day.id === "day1")?.items.find((item) => item.id === "d1-05");
-if (day1Garden) {
-  day1Garden.time = "16:30-17:00／早晚彈性";
-  day1Garden.note =
-    "美景宮花園免費。因為飯店就在附近，除了下午順路散步，早上或晚餐後如果想補一段安靜散步，也很適合回來看噴泉與幾何造景。";
-}
-
 const day1 = tripDays.find((day) => day.id === "day1");
 if (day1) {
-  day1.title = "金色大廳取票、中央車站、美景宮與卡爾教堂";
-  day1.status = "抵達日；18:00 前須完成取票；景點小計 €32.50";
+  day1.title = "金色大廳取票、中央車站、卡爾教堂與研討會";
+  day1.status = "抵達日；美景宮改第 5 天早上；景點小計 €9.50";
   day1.note =
-    "13:18 抵達 Wien Hauptbahnhof，放完行李後需在 18:00 前到 Kärntner Straße 51 兌換金色大廳編號座位票。原本下午景點較緊，取票是第一優先。";
+    "13:18 抵達 Wien Hauptbahnhof，放完行李後需在 18:00 前到 Kärntner Straße 51 兌換金色大廳編號座位票。美景宮改到第 5 天早上退房前，第一天不再硬塞 Upper Belvedere。";
   day1.items.push(
     makeItem(
       "d1-08",
-      "09:30-18:00 可兌換",
+      "15:25-16:00",
       "兌換金色大廳音樂會編號座位票",
       "Exchange Musikverein numbered-seat ticket",
       [48.20255, 16.3703],
-      "抵達後從 Savoyen 搭電車／U-Bahn 加徒步，或直接搭計程車到 Kärntner Straße 51",
-      "由飯店出發約 15-25 分鐘",
+      "Salm Bräu 午餐後搭電車／U-Bahn 加徒步，或直接搭計程車到 Kärntner Straße 51",
+      "約 15-25 分鐘",
       "固定取票；18:00 截止",
-      "地址：Kärntner Straße 51, 1010 Wien。09:30-18:00 是可兌換時間窗，不是整段停留時間；你 13:18 抵達後才能辦理，建議放完行李就優先前往，並預留核對訂單與領取編號座位票的時間。",
+      "地址：Kärntner Straße 51, 1010 Wien。09:30-18:00 是可兌換時間窗，不是整段停留時間；抵達、放行李和午餐後優先前往，並預留核對訂單與領取編號座位票的時間。",
       ["booking", "transport", "warning"],
     ),
   );
+  const karlskirche = day1.items.find((item) => item.id === "d1-06");
+  if (karlskirche) {
+    karlskirche.time = "16:20-17:00";
+    karlskirche.transport = "Kärntner Straße 51 到 Karlsplatz 一帶，可 U-Bahn / 電車加步行，或短程計程車";
+    karlskirche.moveTime = "約 10-18 分鐘";
+    karlskirche.note =
+      "美景宮移到第 5 天後，這裡可以視體力入內；若取票或交通延誤，就只拍外觀與水池倒影，保留回飯店緩衝。";
+  }
+  const seminar = day1.items.find((item) => item.id === "d1-07");
+  if (seminar) {
+    seminar.time = "17:10-19:30";
+    seminar.transport = "Karlskirche / Karlsplatz 回 Savoyen，可搭電車、U-Bahn 加徒步或計程車";
+    seminar.moveTime = "約 10-15 分鐘";
+  }
+  day1.items = ["d1-01", "d1-02", "d1-03", "d1-08", "d1-06", "d1-07"]
+    .map((id) => day1.items.find((item) => item.id === id))
+    .filter(Boolean);
 }
 
 const day2 = tripDays.find((day) => day.id === "day2");
@@ -1009,25 +1019,97 @@ tripDays.forEach((day) => {
 
 const day5 = tripDays.find((day) => day.id === "day5");
 if (day5) {
+  day5.title = "美景宮、換飯店、藝術史博物館與普拉特";
+  day5.status = "美景宮 €23 + KHM €22；中午左右換飯店";
+  day5.note =
+    "第一天來不及去的美景宮改到 7/9 早上退房前。參觀後回 Savoyen 退房，再中午左右移動到 Canettistraße 6, 1100 Wien 寄放行李；藝術史博物館改排下午入場，使用前一晚 Klook 買好的 QR code。";
+  const hotelMove = day5.items.find((item) => item.id === "d5-01");
+  if (hotelMove) {
+    hotelMove.time = "11:00-12:15";
+    hotelMove.zh = "回飯店退房，移動到新飯店寄放行李";
+    hotelMove.en = "Check out and move to hotel near Wien Hauptbahnhof";
+    hotelMove.transport =
+      "從 Belvedere 花園步行回 Savoyen 取行李，完成退房後搭電車 D、S-Bahn 或短程計程車到 Canettistraße 6";
+    hotelMove.moveTime = "回飯店步行約 8-12 分鐘；換飯店交通約 15-25 分鐘";
+    hotelMove.note =
+      "換飯店改成中午左右比較順：早上先把美景宮補完，再回 Savoyen 退房、取行李，接著到新飯店寄放行李。";
+  }
   const khm = day5.items.find((item) => item.id === "d5-02");
   if (khm) {
+    khm.time = "13:30-16:00";
+    khm.transport = "從 Canettistraße / Wien Hbf 搭 U1 到 Karlsplatz，再步行或轉 U2 到 MuseumsQuartier";
+    khm.moveTime = "約 20-30 分鐘";
     khm.booking = "前一晚於 Klook 購票；現場直接刷 QR code";
     khm.note =
-      "7/8 晚上先在 Klook 買好門票並把 QR code 存到手機。7/9 抵達 KHM 後直接刷 QR code 入場，不必再排現場購票隊伍；價格以 Klook 下單頁面為準。";
+      "藝術史博物館改到下午。7/8 晚上先在 Klook 買好門票並把 QR code 存到手機；7/9 抵達 KHM 後直接刷 QR code 入場，不必再排現場購票隊伍。";
   }
-  day5.items.push(
-    makeItem(
-      "d5-07",
-      "16:30-17:10",
-      "多瑙河岸散步",
-      "Donaukanal street art walk",
-      [48.2119, 16.3772],
-      "從百水公寓或 Landstraße 一帶往 Donaukanal，可搭短程電車、U-Bahn 或計程車",
-      "約 15-25 分鐘",
-      "€0",
-      "河岸有街頭塗鴉與輕鬆的在地氛圍，適合傍晚散步。若 KHM 或百水公寓停留較久，這站可視體力取消，保留 Prater 晚餐動線。",
-      ["transport", "warning"],
-    ),
+  const lunch = day5.items.find((item) => item.id === "d5-03");
+  if (lunch) {
+    lunch.time = "12:15-13:15";
+    lunch.zh = "中午：新飯店附近或 KHM 周邊午餐";
+    lunch.en = "Lunch near the new hotel or KHM";
+    lunch.coords = HOTEL_CANETTI;
+    lunch.transport = "新飯店寄放行李後，可在中央車站附近吃；若想省移動時間，也可直接往 KHM 周邊用餐";
+    lunch.moveTime = "步行或 U-Bahn 約 0-20 分鐘";
+    lunch.note =
+      "因為 KHM 改下午，午餐不用卡在館內；以中午換飯店後的體力和時間決定在新飯店附近吃，或直接往博物館區移動。";
+  }
+  const hundertwasser = day5.items.find((item) => item.id === "d5-04");
+  if (hundertwasser) {
+    hundertwasser.time = "16:25-17:10";
+    hundertwasser.transport = "從 KHM 搭 U-Bahn / 電車到 Landstraße 或 Radetzkyplatz 周邊再步行";
+    hundertwasser.moveTime = "約 25-35 分鐘";
+  }
+  const prater = day5.items.find((item) => item.id === "d5-05");
+  if (prater) {
+    prater.time = "18:15-18:45";
+    prater.transport = "從 Donaukanal 或百水公寓一帶搭 U-Bahn / 電車到 Praterstern，再步行進公園";
+    prater.moveTime = "約 15-25 分鐘";
+  }
+  const dinner = day5.items.find((item) => item.id === "d5-06");
+  if (dinner) {
+    dinner.time = "19:00 以後";
+    dinner.transport = "Prater 園區內步行到 Schweizerhaus";
+    dinner.note = "晚餐後回中央車站附近新飯店，路線單純；如果下午 KHM 看比較久，可直接略過 Donaukanal。";
+  }
+  const upperBelvedere = makeItem(
+    "d5-08",
+    "09:00-10:30",
+    "上美景宮",
+    "Upper Belvedere",
+    [48.19417, 16.38028],
+    "從 Savoyen 步行進入 Belvedere 園區；行李先留在飯店，參觀後回飯店退房",
+    "步行約 8-12 分鐘",
+    "成人票 €23",
+    "第一天來不及去的 Upper Belvedere 移到這裡。早上從飯店旁邊進園區最順，重點看 Klimt 與主展廳，結束後不要忘記回飯店退房。",
+    ["booking", "transport", "warning"],
+  );
+  const belvedereGarden = makeItem(
+    "d5-09",
+    "10:30-10:55",
+    "美景宮花園散步",
+    "Belvedere Gardens",
+    [48.1933, 16.38],
+    "Upper Belvedere 出來後沿花園徒步，往 Savoyen 方向回飯店",
+    "約 20-25 分鐘",
+    "€0",
+    "花園免費。這段當作參觀後回飯店退房前的順路散步，不另外增加跨區移動。",
+    ["transport"],
+  );
+  const donaukanal = makeItem(
+    "d5-07",
+    "17:30-18:00（可取消）",
+    "多瑙河岸散步",
+    "Donaukanal street art walk",
+    [48.2119, 16.3772],
+    "從百水公寓或 Landstraße 一帶往 Donaukanal，可搭短程電車、U-Bahn 或計程車",
+    "約 15-25 分鐘",
+    "€0",
+    "河岸有街頭塗鴉與輕鬆的在地氛圍，適合傍晚散步。若 KHM 或百水公寓停留較久，這站可視體力取消，保留 Prater 晚餐動線。",
+    ["transport", "warning"],
+  );
+  day5.items = [upperBelvedere, belvedereGarden, hotelMove, lunch, khm, hundertwasser, donaukanal, prater, dinner].filter(
+    Boolean,
   );
 }
 
@@ -1080,13 +1162,15 @@ const MOVEMENT_MODE_BY_ID = {
   "d4-15": "徒步",
   "d4-16": "徒步",
   "d4-17": "線上操作",
-  "d5-01": "大眾運輸／計程車",
+  "d5-01": "徒步＋大眾運輸／計程車",
   "d5-02": "U-Bahn＋徒步／計程車",
-  "d5-03": "徒步",
+  "d5-03": "徒步／U-Bahn",
   "d5-04": "U-Bahn／電車＋徒步",
   "d5-05": "徒步／U-Bahn",
   "d5-06": "徒步",
   "d5-07": "電車／U-Bahn＋徒步",
+  "d5-08": "徒步",
+  "d5-09": "徒步",
   "d6-01": "飯店內",
   "d6-02": "徒步／計程車",
   "d6-03": "站內徒步",
