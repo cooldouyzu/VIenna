@@ -1002,6 +1002,21 @@ const revisedDay4 = {
 const day4Index = tripDays.findIndex((day) => day.id === "day4");
 if (day4Index !== -1) {
   tripDays[day4Index] = revisedDay4;
+  tripDays[day4Index].status = "已完成美泉宮、KHM 與 Schnitzel One；未訪點移到第 5 天";
+  tripDays[day4Index].note =
+    "7/8 實際完成：早上美泉宮，下午藝術史博物館，並吃到 Schnitzel One 的維也納豬排。原先下午的環城大道、百水公寓、多瑙河岸與普拉特等未訪點，改到第 5 天依體力補走。";
+  const khmReminder = tripDays[day4Index].items.find((item) => item.id === "d4-17");
+  if (khmReminder) {
+    khmReminder.time = "今日紀錄";
+    khmReminder.zh = "已完成：藝術史博物館與 Schnitzel One";
+    khmReminder.en = "Completed: KHM and Schnitzel One";
+    khmReminder.transport = "今日已完成，不需移動";
+    khmReminder.moveTime = "已完成";
+    khmReminder.booking = "KHM 已參訪；不需再買 7/9 票";
+    khmReminder.note =
+      "7/8 下午已參觀藝術史博物館，也吃到 Schnitzel One 的維也納豬排。第 5 天下午不再排 KHM，改補還沒走到的外觀與散步點。";
+    khmReminder.tags = ["warning"];
+  }
 }
 
 const TRIP_DATES = {
@@ -1019,50 +1034,43 @@ tripDays.forEach((day) => {
 
 const day5 = tripDays.find((day) => day.id === "day5");
 if (day5) {
-  day5.title = "美景宮、換飯店、藝術史博物館與普拉特";
-  day5.status = "美景宮 €23 + KHM €22；中午左右換飯店";
+  day5.title = "美景宮上宮、退房換飯店與未訪點補走";
+  day5.status = "09:00 Upper Belvedere；12:00 前退房；下午補未訪點";
   day5.note =
-    "第一天來不及去的美景宮改到 7/9 早上退房前。參觀後回 Savoyen 退房，再中午左右移動到 Canettistraße 6, 1100 Wien 寄放行李；藝術史博物館改排下午入場，使用前一晚 Klook 買好的 QR code。";
+    "7/8 已完成藝術史博物館與 Schnitzel One，7/9 不再排 KHM。第 5 天早上仍保留美景宮上宮；參觀後回 Savoyen，12:00 前退房，再到 Canettistraße 6, 1100 Wien 寄放行李。下午改補還沒參訪的環城大道外觀、百水公寓、多瑙河岸與普拉特。";
   const hotelMove = day5.items.find((item) => item.id === "d5-01");
   if (hotelMove) {
-    hotelMove.time = "11:00-12:15";
+    hotelMove.time = "10:55-12:00";
     hotelMove.zh = "回飯店退房，移動到新飯店寄放行李";
     hotelMove.en = "Check out and move to hotel near Wien Hauptbahnhof";
     hotelMove.transport =
       "從 Belvedere 花園步行回 Savoyen 取行李，完成退房後搭電車 D、S-Bahn 或短程計程車到 Canettistraße 6";
     hotelMove.moveTime = "回飯店步行約 8-12 分鐘；換飯店交通約 15-25 分鐘";
     hotelMove.note =
-      "換飯店改成中午左右比較順：早上先把美景宮補完，再回 Savoyen 退房、取行李，接著到新飯店寄放行李。";
-  }
-  const khm = day5.items.find((item) => item.id === "d5-02");
-  if (khm) {
-    khm.time = "13:30-16:00";
-    khm.transport = "從 Canettistraße / Wien Hbf 搭 U1 到 Karlsplatz，再步行或轉 U2 到 MuseumsQuartier";
-    khm.moveTime = "約 20-30 分鐘";
-    khm.booking = "前一晚於 Klook 購票；現場直接刷 QR code";
-    khm.note =
-      "藝術史博物館改到下午。7/8 晚上先在 Klook 買好門票並把 QR code 存到手機；7/9 抵達 KHM 後直接刷 QR code 入場，不必再排現場購票隊伍。";
+      "飯店只要 12:00 前退房即可。早上先把美景宮上宮補完，再回 Savoyen 取行李退房；若行李多或時間緊，從 Savoyen 到新飯店直接叫車最省心。";
   }
   const lunch = day5.items.find((item) => item.id === "d5-03");
   if (lunch) {
-    lunch.time = "12:15-13:15";
-    lunch.zh = "中午：新飯店附近或 KHM 周邊午餐";
-    lunch.en = "Lunch near the new hotel or KHM";
-    lunch.coords = HOTEL_CANETTI;
-    lunch.transport = "新飯店寄放行李後，可在中央車站附近吃；若想省移動時間，也可直接往 KHM 周邊用餐";
-    lunch.moveTime = "步行或 U-Bahn 約 0-20 分鐘";
+    lunch.time = "12:00-13:00";
+    lunch.zh = "午餐／咖啡：中央車站附近或納許市場備案";
+    lunch.en = "Lunch / coffee near Hbf or Naschmarkt backup";
+    lunch.coords = [48.19805, 16.36375];
+    lunch.transport = "新飯店寄放行李後，可在中央車站附近快速吃；若納許市場還沒去，可搭 U1 / U4 到 Kettenbrückengasse 一帶";
+    lunch.moveTime = "中央車站附近步行約 5-10 分鐘；去納許市場約 15-25 分鐘";
     lunch.note =
-      "因為 KHM 改下午，午餐不用卡在館內；以中午換飯店後的體力和時間決定在新飯店附近吃，或直接往博物館區移動。";
+      "你已經吃到 Schnitzel One 的維也納豬排，這餐就排彈性：想省時間就在新飯店／中央車站附近吃；若昨天沒走納許市場，可改去 Naschmarkt，順路補 Alt Wien Kaffee 或 Vollpension。";
   }
   const hundertwasser = day5.items.find((item) => item.id === "d5-04");
   if (hundertwasser) {
-    hundertwasser.time = "16:25-17:10";
-    hundertwasser.transport = "從 KHM 搭 U-Bahn / 電車到 Landstraße 或 Radetzkyplatz 周邊再步行";
-    hundertwasser.moveTime = "約 25-35 分鐘";
+    hundertwasser.time = "16:10-16:50";
+    hundertwasser.transport = "從 Stadtpark / Wien Mitte 一帶搭電車或 U-Bahn 到 Landstraße、Radetzkyplatz 周邊再步行";
+    hundertwasser.moveTime = "約 15-25 分鐘";
+    hundertwasser.note =
+      "只看外觀與 Hundertwasser Village，不需要門票。若前面國會或市政廳停太久，這站仍然很適合保留，因為和多瑙河岸、普拉特同方向。";
   }
   const prater = day5.items.find((item) => item.id === "d5-05");
   if (prater) {
-    prater.time = "18:15-18:45";
+    prater.time = "18:05-18:45";
     prater.transport = "從 Donaukanal 或百水公寓一帶搭 U-Bahn / 電車到 Praterstern，再步行進公園";
     prater.moveTime = "約 15-25 分鐘";
   }
@@ -1070,11 +1078,11 @@ if (day5) {
   if (dinner) {
     dinner.time = "19:00 以後";
     dinner.transport = "Prater 園區內步行到 Schweizerhaus";
-    dinner.note = "晚餐後回中央車站附近新飯店，路線單純；如果下午 KHM 看比較久，可直接略過 Donaukanal。";
+    dinner.note = "晚餐後回中央車站附近新飯店，路線單純；如果下午環城大道停留較久，可直接略過 Donaukanal，保留普拉特與晚餐。";
   }
   const upperBelvedere = makeItem(
     "d5-08",
-    "09:00-10:30",
+    "09:00-10:25",
     "上美景宮",
     "Upper Belvedere",
     [48.19417, 16.38028],
@@ -1086,7 +1094,7 @@ if (day5) {
   );
   const belvedereGarden = makeItem(
     "d5-09",
-    "10:30-10:55",
+    "10:25-10:50",
     "美景宮花園散步",
     "Belvedere Gardens",
     [48.1933, 16.38],
@@ -1096,21 +1104,67 @@ if (day5) {
     "花園免費。這段當作參觀後回飯店退房前的順路散步，不另外增加跨區移動。",
     ["transport"],
   );
+  const parliament = makeItem(
+    "d5-10",
+    "13:30-14:15",
+    "奧地利國會大廈外觀／免費參觀備案",
+    "Austrian Parliament",
+    [48.20847, 16.35862],
+    "從新飯店或納許市場一帶搭 U-Bahn／環城電車到 Ring 周邊，再徒步到國會大廈",
+    "約 20-30 分鐘",
+    "外觀 €0；免費參觀需護照與安檢",
+    "昨天若沒走到環城大道，下午從國會大廈補起最順。時間有限就看外觀與雅典娜女神雕像；若現場免費參觀動線順、安檢不用等太久，再入內。",
+    ["booking", "transport", "warning"],
+  );
+  const rathaus = makeItem(
+    "d5-11",
+    "14:25-14:50",
+    "市政廳廣場",
+    "Rathausplatz / Vienna City Hall",
+    [48.21082, 16.35814],
+    "從國會大廈沿 Ring 徒步前往",
+    "約 5-10 分鐘",
+    "€0",
+    "補看維也納市政廳外觀與廣場。如果有免費活動就短暫停留；否則拍照後往城市公園方向移動。",
+    ["transport"],
+  );
+  const stadtpark = makeItem(
+    "d5-12",
+    "15:15-15:45",
+    "城市公園與金色小約翰・史特勞斯雕像",
+    "Stadtpark / Johann Strauss Monument",
+    [48.20465, 16.38037],
+    "從 Rathausplatz 搭 Ring 周邊電車到 Stadtpark 一帶，或視體力步行",
+    "約 15-25 分鐘",
+    "€0",
+    "把原本第 4 天沒走到的免費公園點移到這裡。這站拍照後，動線可往 Landstraße、百水公寓和普拉特延伸。",
+    ["transport"],
+  );
   const donaukanal = makeItem(
     "d5-07",
-    "17:30-18:00（可取消）",
+    "17:10-17:40（可取消）",
     "多瑙河岸散步",
     "Donaukanal street art walk",
     [48.2119, 16.3772],
     "從百水公寓或 Landstraße 一帶往 Donaukanal，可搭短程電車、U-Bahn 或計程車",
     "約 15-25 分鐘",
     "€0",
-    "河岸有街頭塗鴉與輕鬆的在地氛圍，適合傍晚散步。若 KHM 或百水公寓停留較久，這站可視體力取消，保留 Prater 晚餐動線。",
+    "河岸有街頭塗鴉與輕鬆的在地氛圍，適合傍晚散步。若國會、市政廳或百水公寓停留較久，這站可視體力取消，保留 Prater 晚餐動線。",
     ["transport", "warning"],
   );
-  day5.items = [upperBelvedere, belvedereGarden, hotelMove, lunch, khm, hundertwasser, donaukanal, prater, dinner].filter(
-    Boolean,
-  );
+  day5.items = [
+    upperBelvedere,
+    belvedereGarden,
+    hotelMove,
+    lunch,
+    parliament,
+    rathaus,
+    stadtpark,
+    hundertwasser,
+    donaukanal,
+    prater,
+    dinner,
+  ].filter(Boolean);
 }
 
 const MOVEMENT_MODE_BY_ID = {
@@ -1171,6 +1225,9 @@ const MOVEMENT_MODE_BY_ID = {
   "d5-07": "電車／U-Bahn＋徒步",
   "d5-08": "徒步",
   "d5-09": "徒步",
+  "d5-10": "U-Bahn／環城電車＋徒步",
+  "d5-11": "徒步",
+  "d5-12": "環城電車／徒步",
   "d6-01": "飯店內",
   "d6-02": "徒步／計程車",
   "d6-03": "站內徒步",
